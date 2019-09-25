@@ -29,7 +29,7 @@ public class WristTest {
 
         double currentTime = 0.0;
         while(currentTime < 30.0) {
-            final double voltage = wrist.update(simWrist.encoder(), simWrist.limitTriggered());
+            final double voltage = wrist.update(simWrist.encoder(), simWrist.limitTriggered(), true);
             pw.write(String.format("%f, %f, %f, %f, %f, %f, %f, %f\n", currentTime, simWrist.angle, voltage, simWrist.aVel, simWrist.getAcceleration(voltage), wrist.getFilteredGoal(), simWrist.limitTriggered() ? 1.0 : 0.0, wrist.lastError));
             simulateTime(voltage, WristSim.kDt);
             currentTime += WristSim.kDt;

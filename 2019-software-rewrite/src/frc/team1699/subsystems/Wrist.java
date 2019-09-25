@@ -48,7 +48,7 @@ public class Wrist implements ClosedLoopSubsystem {
     double filteredGoal = 0.0;
 
     @Override
-    public double update(double encoder, boolean limitTriggered) {
+    public double update(double encoder, boolean limitTriggered, boolean enabled) {
         return 0;
     }
 

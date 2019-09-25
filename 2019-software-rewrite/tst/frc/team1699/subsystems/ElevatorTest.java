@@ -15,7 +15,7 @@ public class ElevatorTest {
     final static double goal = 1.0;
 
     @Test
-    void testWristModel(){
+    void testElevatorModel(){
         Elevator elevator = Elevator.getInstance();
         elevator.setGoal(goal);
 
@@ -29,7 +29,7 @@ public class ElevatorTest {
 
         double currentTime = 0.0;
         while(currentTime < 30.0) {
-            final double voltage = elevator.update(simElevator.encoder(), simElevator.limitTriggered());
+            final double voltage = elevator.update(simElevator.encoder(), simElevator.limitTriggered(), true);
             pw.write(String.format("%f, %f, %f, %f, %f, %f, %f, %f\n", currentTime, simElevator.position, voltage, simElevator.velocity, simElevator.getAcceleration(voltage), elevator.getFilteredGoal(), simElevator.limitTriggered() ? 1.0 : 0.0, elevator.lastError));
             simulateTime(voltage, ElevatorSim.kDt);
             currentTime += ElevatorSim.kDt;
