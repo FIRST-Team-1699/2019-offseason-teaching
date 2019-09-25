@@ -11,7 +11,27 @@ public class DriveTrain {
         return instance;
     }
 
-    private DriveTrain(){
+    private DriveTrain(){}
 
+    public DriveSignal update(double joystickX, double joystickY){
+        return null;
+    }
+
+    public static class DriveSignal{
+        private double portVoltage;
+        private double starVoltage;
+
+        DriveSignal(final double portVoltage, final double starVoltage){
+            this.portVoltage = portVoltage;
+            this.starVoltage = starVoltage;
+        }
+
+        public double getPortVoltage(){
+            return portVoltage;
+        }
+
+        public double getStarVoltage(){
+            return starVoltage;
+        }
     }
 }
