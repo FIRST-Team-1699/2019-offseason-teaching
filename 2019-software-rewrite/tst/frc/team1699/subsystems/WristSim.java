@@ -14,14 +14,10 @@ public class WristSim {
         return instance;
     }
 
-    //Distance from center of rotation in meters
-    static final double cg = 0.0;
     //Rotational Inertia of Barrel Assembly in Kilograms * meters * meters
-    static final double kInertia = 0.04441392;
+    static final double kInertia = 0.04441392; //TODO Calculate new value
     //Gear Ratio
-    static final double kG = 100.0 * 60/12;
-    //Radius of pulley
-    static final double kr = 3.5825;
+    static final double kG = 100.0 * 60/12; //TODO Change ratio
 
     //Sample time
     public static final double kDt = 0.010;
