@@ -2,6 +2,7 @@ package frc.team1699.utils;
 
 public class Constants {
 
+    //Motor constants
     public class Motor775Pro{
         //Stall Torque in N*m
         public static final double kStallTorque = 0.71;
@@ -18,4 +19,53 @@ public class Constants {
         //Torque constant
         public static final double Kt = kStallTorque / kStallCurrent;
     }
+
+    //Joysticks
+    public static final int kDriveJoystickPort = 0;
+    public static final int kOperatorJoystickPort = 1;
+
+    //Joystick Buttons
+    //Claw
+    public static final int kClawUpButton = 0;
+    public static final int kClawHatchPickupButton = 0;
+    public static final int kClawBallPickupButton = 0;
+
+    //Elevator
+    public static final int kElevatorBallIntakeButton = 0;
+    public static final int kElevatorHatchIntakeButton = 0;
+    public static final int kLowHatchButton = 0;
+    public static final int kMedHatchButton = 0;
+    public static final int kHighHatchButton = 0;
+    public static final int kCargoButton = 0;
+    public static final int kBallOffsetButton = 0;
+
+    //Motor Ports
+    //Drive Train
+    public static final int kPortMasterPort = 0;
+    public static final int kPortSlavePort = 1;
+    public static final int kStarMasterPort = 2;
+    public static final int kStarSlavePort = 3;
+    //Claw
+    public static final int kClawRotateMotorPort = 0;
+    public static final int kClawIntakeMotorPortPort = 0;
+    public static final int kClawIntakeMotorStarPort = 0;
+
+    //Elevator
+    public static final int kElevatorMasterPort = 0;
+    public static final int kElevatorSlavePort = 0;
+
+    //Setpoints
+    //Claw setpoints
+    public static final double kClawUp = 0;
+    public static final double kClawHatchPickup = 0;
+    public static final double kClawBallPickup = 0;
+
+    //Elevator setpoints
+    public static final double kElevatorBallIntake = 0;
+    public static final double kElevatorHatchIntake = 0;
+    public static final double kLowHatch = 0;
+    public static final double kMedHatch = 0;
+    public static final double kHighHatch = 0;
+    public static final double kBallCargoShip = 0;
+    public static final double kBallOffset = 0;
 }

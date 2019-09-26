@@ -11,7 +11,28 @@ public class Claw {
         return instance;
     }
 
-    private Claw(){
+    enum State{
+        WAITING,
+        INTAKING,
+        OUTTAKING
+    }
 
+    private State currentState;
+    private State demandedState;
+
+    private Claw(){
+        currentState = State.WAITING;
+    }
+
+    public void update(){
+
+    }
+
+    public void setDemandedState(final State demandedState){
+        this.demandedState = demandedState;
+    }
+
+    public State getCurrentState(){
+        return currentState;
     }
 }

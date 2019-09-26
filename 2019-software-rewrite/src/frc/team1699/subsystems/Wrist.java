@@ -36,8 +36,8 @@ public class Wrist implements ClosedLoopSubsystem {
     static double kMaxZeroingVoltage = 4.0;
 
     //Control loop constants
-    static double Kp = 3.0;
-    static double Kv = 10.0;
+    static double Kp = 6.0;
+    static double Kv = 14.0;
 
     private Wrist(){}
 
@@ -49,12 +49,50 @@ public class Wrist implements ClosedLoopSubsystem {
 
     @Override
     public double update(double encoder, boolean limitTriggered, boolean enabled) {
-        return 0;
+        double position = encoder + offset;
+        switch (state){
+            case UNINITIALIZED: //Uninitialized
+                if (enabled){
+                    state = State.ZEROING;
+                    filteredGoal = position;
+                }
+                break;
+            case ZEROING: //Zeroing
+                filteredGoal -= kDt * kZeroingAVelocity;
+                if (limitTriggered) {
+                    state = State.RUNNING;
+                    offset = -encoder;
+                    position = 0.0;
+                }
+                if (!enabled) {
+                    state = State.UNINITIALIZED;
+                }
+                break;
+            case RUNNING: //Running
+                filteredGoal = goal_;
+                break;
+            case ESTOPPED: //EStopped
+
+                break;
+        }
+
+        final double error = filteredGoal - position;
+        final double vel = (error - lastError) / kDt;
+        lastError = error;
+        double voltage = Kp * error + Kv * vel;
+
+        final double maxVoltage = state == State.RUNNING ? kMaxVoltage : kMaxZeroingVoltage;
+
+        if(voltage >= maxVoltage){
+            return maxVoltage;
+        }else return Math.max(voltage, -maxVoltage);
     }
 
     @Override
     public void setGoal(double goal) {
-
+        if(goal > kMaxAngle) {
+            goal_ = kMaxAngle;
+        }else goal_ = Math.max(goal, kMinAngle);
     }
 
     public double getGoal() {

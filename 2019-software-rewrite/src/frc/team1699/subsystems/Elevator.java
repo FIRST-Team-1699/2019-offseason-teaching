@@ -36,8 +36,8 @@ public class Elevator implements ClosedLoopSubsystem {
     static final double kMaxZeroingVoltage = 4.0;
 
     //Control loop constants
-    static final double Kp = 30.0;
-    static final double Kv = 70.0;
+    static final double Kp = 60.0;
+    static final double Kv = 100.0;
 
     double goal_ = 0.0;
     private State state = State.UNINITIALIZED;
@@ -94,11 +94,7 @@ public class Elevator implements ClosedLoopSubsystem {
     public void setGoal(double goal) {
         if(goal > kMaxHeight) {
             goal_ = kMaxHeight;
-        }else if(goal < kMinHeight){
-            goal_ = kMinHeight;
-        }else{
-            goal_ = goal;
-        }
+        }else goal_ = Math.max(goal, kMinHeight);
     }
 
     public double getGoal() {
