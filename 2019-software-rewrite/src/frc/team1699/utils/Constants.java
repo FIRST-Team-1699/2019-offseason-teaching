@@ -25,10 +25,14 @@ public class Constants {
     public static final int kOperatorJoystickPort = 1;
 
     //Joystick Buttons
-    //Claw
+    //Wrist
     public static final int kClawUpButton = 0;
     public static final int kClawHatchPickupButton = 0;
     public static final int kClawBallPickupButton = 0;
+
+    //CLaw
+    public static final int kClawIntakeButton = 0;
+    public static final int kClawOuttakeButton = 0;
 
     //Elevator
     public static final int kElevatorBallIntakeButton = 0;
@@ -45,8 +49,11 @@ public class Constants {
     public static final int kPortSlavePort = 1;
     public static final int kStarMasterPort = 2;
     public static final int kStarSlavePort = 3;
-    //Claw
+
+    //Wrist
     public static final int kClawRotateMotorPort = 0;
+
+    //Claw
     public static final int kClawIntakeMotorPortPort = 0;
     public static final int kClawIntakeMotorStarPort = 0;
 
@@ -55,7 +62,7 @@ public class Constants {
     public static final int kElevatorSlavePort = 0;
 
     //Setpoints
-    //Claw setpoints
+    //Wrist setpoints
     public static final double kClawUp = 0;
     public static final double kClawHatchPickup = 0;
     public static final double kClawBallPickup = 0;
@@ -68,4 +75,9 @@ public class Constants {
     public static final double kHighHatch = 0;
     public static final double kBallCargoShip = 0;
     public static final double kBallOffset = 0;
+
+    //Power constants
+    //Claw power constants
+    public static final double kBallIntakePower = 0.0;
+    public static final double kBallOuttakePower = 0.0;
 }
