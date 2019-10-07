@@ -2,6 +2,7 @@ package frc.team1699.subsystems;
 
 public class DriveTrain {
 
+    //Vars and methods to make this a singleton
     private static DriveTrain instance;
 
     public static DriveTrain getInstance(){
@@ -54,6 +55,7 @@ public class DriveTrain {
         return new DriveSignal(leftMotorOutput, rightMotorOutput);
     }
 
+    //Stores the port and starboard power settings for the motors
     public static class DriveSignal{
         private double portVoltage;
         private double starVoltage;

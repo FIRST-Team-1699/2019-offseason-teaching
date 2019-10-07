@@ -1,5 +1,7 @@
 package frc.team1699.subsystems;
 
+import frc.team1699.utils.Utils;
+
 public class Elevator implements ClosedLoopSubsystem {
 
     private static Elevator instance;
@@ -95,6 +97,11 @@ public class Elevator implements ClosedLoopSubsystem {
         if(goal > kMaxHeight) {
             goal_ = kMaxHeight;
         }else goal_ = Math.max(goal, kMinHeight);
+    }
+
+    @Override
+    public boolean atGoal() {
+        return Utils.epsilonEquals(lastError, 0, 5); //TODO Check epsilon
     }
 
     public double getGoal() {

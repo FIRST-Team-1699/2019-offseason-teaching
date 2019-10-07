@@ -27,18 +27,24 @@ public class WristSim {
 
     private WristSim(){}
 
+    //The current angle of the system
     double angle = 5.0;
+    //The angular velocity of the system in rad/sec TODO verify units
     double aVel = 0.0;
+    //The offset of the system
     double offset = 5.0;
 
+    //Returns the acceleration of the system based on an applied voltage
     double getAcceleration(final double voltage){
         return (voltage - (aVel / Kv)) * ((kG * Kt) / (kInertia * kResistance));
     }
 
+    //Returns true if the system would trigger a limit
     boolean limitTriggered(){
         return angle > -1.0 && angle < 0.0;
     }
 
+    //Returns the encoder value of the system
     double encoder(){
         return angle + offset;
     }

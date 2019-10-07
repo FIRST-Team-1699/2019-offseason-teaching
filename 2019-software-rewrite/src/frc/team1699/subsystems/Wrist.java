@@ -1,7 +1,10 @@
 package frc.team1699.subsystems;
 
+import frc.team1699.utils.Utils;
+
 public class Wrist implements ClosedLoopSubsystem {
 
+    //Vars and methods to make this class a singleton
     private static Wrist instance;
 
     public static Wrist getInstance(){
@@ -11,6 +14,7 @@ public class Wrist implements ClosedLoopSubsystem {
         return instance;
     }
 
+    //The states that the system can be in
     enum State {
         UNINITIALIZED,
         ZEROING,
@@ -18,16 +22,17 @@ public class Wrist implements ClosedLoopSubsystem {
         ESTOPPED
     }
 
+    //The rate at which the system is updated
     static double kDt = 0.05;
 
     //Zeroing velocity in rpm
     static double kZeroingAVelocity = 1.0;
 
     //Max Angle
-    static double kMaxAngle = 60.0;
+    static double kMaxAngle = 60.0; //TODO Modify
 
     //Min Angle
-    static double kMinAngle = 0.0;
+    static double kMinAngle = 0.0; //TODO Modify
 
     //Max voltage to be applied
     static double kMaxVoltage = 12.0;
@@ -41,10 +46,15 @@ public class Wrist implements ClosedLoopSubsystem {
 
     private Wrist(){}
 
+    //The current goal
     double goal_ = 0.0;
+    //The current system state
     private State state = State.UNINITIALIZED;
+    //Encoder offset
     double offset = 0.0;
+    //The last error in the system
     double lastError = 0.0;
+    //A filtered goal. Used when zeroing
     double filteredGoal = 0.0;
 
     @Override
@@ -93,6 +103,11 @@ public class Wrist implements ClosedLoopSubsystem {
         if(goal > kMaxAngle) {
             goal_ = kMaxAngle;
         }else goal_ = Math.max(goal, kMinAngle);
+    }
+
+    @Override
+    public boolean atGoal() {
+        return Utils.epsilonEquals(lastError, 0, 5); //TODO Check epsilon
     }
 
     public double getGoal() {
