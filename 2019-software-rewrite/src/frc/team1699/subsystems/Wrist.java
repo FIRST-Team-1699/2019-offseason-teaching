@@ -25,8 +25,8 @@ public class Wrist implements ClosedLoopSubsystem {
     //The rate at which the system is updated
     static double kDt = 0.05;
 
-    //Zeroing velocity in rpm
-    static double kZeroingAVelocity = 1.0;
+    //Zeroing velocity in rpm TODO Check units
+    static double kZeroingAVelocity = 0.5;
 
     //Max Angle
     static double kMaxAngle = 60.0; //TODO Modify
@@ -41,8 +41,8 @@ public class Wrist implements ClosedLoopSubsystem {
     static double kMaxZeroingVoltage = 4.0;
 
     //Control loop constants
-    static double Kp = 6.0;
-    static double Kv = 14.0;
+    static double Kp = 7.0;
+    static double Kv = 21.0;
 
     private Wrist(){}
 

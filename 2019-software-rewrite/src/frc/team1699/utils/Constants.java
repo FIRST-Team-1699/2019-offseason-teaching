@@ -20,6 +20,24 @@ public class Constants {
         public static final double Kt = kStallTorque / kStallCurrent;
     }
 
+    //TODO Calculate values
+    public class MotorDual775Pro{
+        //Stall Torque in N*m
+        public static final double kStallTorque = 0.71 * 2.00; //TODO Check
+        //Stall Current in Amps
+        public static final double kStallCurrent = 134.0 * 2.00; //TODO Check
+        //Free Speed in RPMs
+        public static final double kFreeSpeed = 18730.0;
+        //Free Current in Amps
+        public static final double kFreeCurrent = 0.7 * 2.00; //TODO Check
+        //Resistance of the motor
+        public static final double kResistance = 12.0 / kStallTorque;
+        //Motor Velocity Constant
+        public static final double Kv = ((kFreeSpeed / 60.0 * 2.0 * Math.PI) / (12.0 - kResistance * kFreeCurrent));
+        //Torque constant
+        public static final double Kt = kStallTorque / kStallCurrent;
+    }
+
     //Joysticks
     public static final int kDriveJoystickPort = 0;
     public static final int kOperatorJoystickPort = 1;
