@@ -14,8 +14,8 @@ public class WristSim {
         return instance;
     }
 
-    //Rotational Inertia of Barrel Assembly in Kilograms * meters * meters
-    static final double kInertia = 0.166708031; //TODO Calculate new value
+    //Rotational Inertia of Barrel Assembly in Newton * meters * meters
+    static final double kInertia = 0.166708031 * 9.81; //TODO Calculate new value
     //Gear Ratio
     static final double kG = 5.33 * 10.71 * 2.5 * 2.5; //TODO Change ratio
 
@@ -27,12 +27,12 @@ public class WristSim {
 
     private WristSim(){}
 
-    //The current angle of the system
-    double angle = 5.0;
+    //The current angle of the system in radians
+    double angle = 0.1;
     //The angular velocity of the system in rad/sec TODO verify units
     double aVel = 0.0;
-    //The offset of the system
-    double offset = 5.0;
+    //The offset of the system in radians
+    double offset = 0.1;
 
     //Returns the acceleration of the system based on an applied voltage
     double getAcceleration(final double voltage){

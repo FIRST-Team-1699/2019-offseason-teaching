@@ -98,4 +98,7 @@ public class Constants {
     //Claw power constants
     public static final double kBallIntakePower = 0.0;
     public static final double kBallOuttakePower = 0.0;
+
+    //SRX Mag Encoder Constants
+    public static int encoderTicksPerRotation = 0; //TODO Change
 }

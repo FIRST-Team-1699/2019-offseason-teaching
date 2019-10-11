@@ -14,7 +14,7 @@ public class WristTest {
     //Get an instance of WristSim
     private WristSim simWrist = WristSim.getInstance();
     //Set the goal of the simulation
-    final static double goal = 20.0;
+    final static double goal = 1.0;
 
     //Models the wrist over time
     @Test
@@ -80,13 +80,12 @@ public class WristTest {
             //Check if the limit have been triggered
             if(simWrist.limitTriggered()){
                 //Make sure that we are not going too fast when we run into the limit
-                //TODO REALLY NEED TO CHECK UNITS HERE 8.0 rad/sec is big fast
-                assertTrue(simWrist.aVel > -8.0, String.format("System running at %f rpm which is less than -8.0", simWrist.aVel));
+                assertTrue(simWrist.aVel > -0.5, String.format("System running at %f rad/sec which is less than -0.5", simWrist.aVel));
             }
             //Check that we are not less than the min angle
-            assertTrue(simWrist.angle >= Wrist.kMinAngle - 1.0, String.format("System is at %f meters which is less than minimum angle of %f", simWrist.angle, Wrist.kMinAngle));
+            assertTrue(simWrist.angle >= Wrist.kMinAngle - 0.1, String.format("System is at %f radians which is less than minimum angle of %f", simWrist.angle, Wrist.kMinAngle));
             //Check that we are not greater than the max angle
-            assertTrue(simWrist.angle <= Wrist.kMaxAngle + 1.0, String.format("System is at %f meters which is greater than the maximum angle of %f", simWrist.angle, Wrist.kMaxAngle));
+            assertTrue(simWrist.angle <= Wrist.kMaxAngle + 0.1, String.format("System is at %f radians which is greater than the maximum angle of %f", simWrist.angle, Wrist.kMaxAngle));
         }
     }
 }

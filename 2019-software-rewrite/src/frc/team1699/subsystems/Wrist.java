@@ -25,14 +25,14 @@ public class Wrist implements ClosedLoopSubsystem {
     //The rate at which the system is updated
     static double kDt = 0.05;
 
-    //Zeroing velocity in rpm TODO Check units
-    static double kZeroingAVelocity = 0.5;
+    //Zeroing velocity in radians / sec
+    static double kZeroingAVelocity = 0.05;
 
-    //Max Angle
-    static double kMaxAngle = 60.0; //TODO Modify
+    //Max Angle in radians
+    static double kMaxAngle = Math.PI;
 
-    //Min Angle
-    static double kMinAngle = 0.0; //TODO Modify
+    //Min Angle in radians
+    static double kMinAngle = 0.0;
 
     //Max voltage to be applied
     static double kMaxVoltage = 12.0;
@@ -41,8 +41,8 @@ public class Wrist implements ClosedLoopSubsystem {
     static double kMaxZeroingVoltage = 4.0;
 
     //Control loop constants
-    static double Kp = 7.0;
-    static double Kv = 21.0;
+    static double Kp = 30.0;
+    static double Kv = 90.0;
 
     private Wrist(){}
 
@@ -107,7 +107,7 @@ public class Wrist implements ClosedLoopSubsystem {
 
     @Override
     public boolean atGoal() {
-        return Utils.epsilonEquals(lastError, 0, 5); //TODO Check epsilon
+        return Utils.epsilonEquals(lastError, 0, 0.1); //TODO Check epsilon
     }
 
     public double getGoal() {
@@ -116,5 +116,11 @@ public class Wrist implements ClosedLoopSubsystem {
 
     public double getFilteredGoal() {
         return filteredGoal;
+    }
+
+    //Util methods
+    //Converts encoder ticks to the wrist angle in degrees
+    public static double encoderToWristAngle(double encoderTicks){
+        return 0.0;
     }
 }
