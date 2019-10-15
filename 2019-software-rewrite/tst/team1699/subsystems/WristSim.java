@@ -1,6 +1,6 @@
-package frc.team1699.subsystems;
+package team1699.subsystems;
 
-import static frc.team1699.utils.Constants.MotorDual775Pro.*;
+import static team1699.utils.Constants.Motor775Pro.*;
 
 //Code inspiration from: https://www.youtube.com/watch?v=uGtT8ojgSzg
 public class WristSim {
@@ -15,7 +15,7 @@ public class WristSim {
     }
 
     //Rotational Inertia of Barrel Assembly in Newton * meters * meters
-    static final double kInertia = 0.166708031 * 9.81; //TODO Calculate new value
+    static final double kInertia = 0.0166708031 * 9.81; //TODO Calculate new value
     //Gear Ratio
     static final double kG = 5.33 * 10.71 * 2.5 * 2.5; //TODO Change ratio
 
@@ -29,7 +29,7 @@ public class WristSim {
 
     //The current angle of the system in radians
     double angle = 0.1;
-    //The angular velocity of the system in rad/sec TODO verify units
+    //The angular velocity of the system in rad/sec
     double aVel = 0.0;
     //The offset of the system in radians
     double offset = 0.1;

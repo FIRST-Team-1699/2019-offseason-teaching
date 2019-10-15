@@ -1,6 +1,7 @@
-package frc.team1699.subsystems;
+package team1699.subsystems;
 
-import frc.team1699.utils.Utils;
+import team1699.utils.Constants;
+import team1699.utils.Utils;
 
 public class Wrist implements ClosedLoopSubsystem {
 
@@ -41,7 +42,7 @@ public class Wrist implements ClosedLoopSubsystem {
     static double kMaxZeroingVoltage = 4.0;
 
     //Control loop constants
-    static double Kp = 30.0;
+    static double Kp = 60.0;
     static double Kv = 90.0;
 
     private Wrist(){}
@@ -107,7 +108,7 @@ public class Wrist implements ClosedLoopSubsystem {
 
     @Override
     public boolean atGoal() {
-        return Utils.epsilonEquals(lastError, 0, 0.1); //TODO Check epsilon
+        return Utils.epsilonEquals(lastError, 0, 0.05);
     }
 
     public double getGoal() {
@@ -120,7 +121,8 @@ public class Wrist implements ClosedLoopSubsystem {
 
     //Util methods
     //Converts encoder ticks to the wrist angle in degrees
+    private static final double tickPerDeg = 360.0/ Constants.kEncoderTicksPerRotation;
     public static double encoderToWristAngle(double encoderTicks){
-        return 0.0;
+        return encoderTicks * tickPerDeg;
     }
 }

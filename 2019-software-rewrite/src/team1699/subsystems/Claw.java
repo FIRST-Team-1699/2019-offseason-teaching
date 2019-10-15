@@ -1,6 +1,6 @@
-package frc.team1699.subsystems;
+package team1699.subsystems;
 
-import frc.team1699.utils.Constants;
+import team1699.utils.Constants;
 
 public class Claw {
 

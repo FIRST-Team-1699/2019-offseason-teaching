@@ -1,4 +1,4 @@
-package frc.team1699.utils;
+package team1699.utils;
 
 public class Constants {
 
@@ -63,21 +63,21 @@ public class Constants {
 
     //Motor Ports
     //Drive Train
-    public static final int kPortMasterPort = 0;
-    public static final int kPortSlavePort = 1;
-    public static final int kStarMasterPort = 2;
-    public static final int kStarSlavePort = 3;
+    public static final int kPortMasterPort = 12;
+    public static final int kPortSlavePort = 13;
+    public static final int kStarMasterPort = 10;
+    public static final int kStarSlavePort = 11;
 
     //Wrist
-    public static final int kClawRotateMotorPort = 0;
+    public static final int kClawRotateMotorPort = 16;
 
     //Claw
-    public static final int kClawIntakeMotorPortPort = 0;
+    public static final int kClawIntakeMotorPortPort = 2;
     public static final int kClawIntakeMotorStarPort = 0;
 
     //Elevator
-    public static final int kElevatorMasterPort = 0;
-    public static final int kElevatorSlavePort = 0;
+    //public static final int kElevatorMasterPort = 0;
+    //public static final int kElevatorSlavePort = 0;
 
     //Setpoints
     //Wrist setpoints
@@ -100,5 +100,5 @@ public class Constants {
     public static final double kBallOuttakePower = 0.0;
 
     //SRX Mag Encoder Constants
-    public static int encoderTicksPerRotation = 0; //TODO Change
+    public static int kEncoderTicksPerRotation = 0; //TODO Change
 }

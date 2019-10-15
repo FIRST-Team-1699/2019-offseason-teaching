@@ -1,13 +1,12 @@
-package frc.team1699;
+package team1699;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
-import frc.team1699.subsystems.Claw;
-import frc.team1699.subsystems.DriveTrain;
-import frc.team1699.subsystems.Wrist;
-import frc.team1699.utils.Constants;
+import team1699.subsystems.Claw;
+import team1699.subsystems.DriveTrain;
+import team1699.utils.Constants;
 
 public class Robot extends TimedRobot {
 
@@ -103,16 +102,18 @@ public class Robot extends TimedRobot {
         //elevatorMaster.set(ControlMode.PercentOutput, Elevator.getInstance().update(0.0, false, true));
 
         //Control Wrist
-        if(operatorJoystick.getRawButton(Constants.kClawUpButton)){
-            Wrist.getInstance().setGoal(Constants.kClawUp);
-        }else if(operatorJoystick.getRawButton(Constants.kClawHatchPickupButton)){
-            Wrist.getInstance().setGoal(Constants.kClawHatchPickup);
-        }else if(operatorJoystick.getRawButton(Constants.kClawBallPickupButton)){
-            Wrist.getInstance().setGoal(Constants.kClawBallPickup);
-        }
+//        if(operatorJoystick.getRawButton(Constants.kClawUpButton)){
+//            Wrist.getInstance().setGoal(Constants.kClawUp);
+//        }else if(operatorJoystick.getRawButton(Constants.kClawHatchPickupButton)){
+//            Wrist.getInstance().setGoal(Constants.kClawHatchPickup);
+//        }else if(operatorJoystick.getRawButton(Constants.kClawBallPickupButton)){
+//            Wrist.getInstance().setGoal(Constants.kClawBallPickup);
+//        }
 
         //Updated position of the wrist
-        wristRotate.set(ControlMode.PercentOutput, Wrist.getInstance().update(0.0, false, true));
+        //wristRotate.set(ControlMode.PercentOutput, Wrist.getInstance().update(0.0, false, true));
+
+        wristRotate.set(ControlMode.PercentOutput, operatorJoystick.getX());
 
         //Control Claw
         if(operatorJoystick.getRawButton(Constants.kClawIntakeButton)){

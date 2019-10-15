@@ -1,4 +1,4 @@
-package frc.team1699.subsystems;
+package team1699.subsystems;
 
 //Represents a subsystem that will use closed loop control
 public interface ClosedLoopSubsystem {

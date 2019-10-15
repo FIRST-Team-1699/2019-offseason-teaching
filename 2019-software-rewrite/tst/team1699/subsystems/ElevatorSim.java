@@ -1,6 +1,6 @@
-package frc.team1699.subsystems;
+package team1699.subsystems;
 
-import static frc.team1699.utils.Constants.Motor775Pro.*;
+import static team1699.utils.Constants.Motor775Pro.*;
 
 public class ElevatorSim {
 

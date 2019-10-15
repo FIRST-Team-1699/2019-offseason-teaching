@@ -1,4 +1,4 @@
-package frc.team1699.utils;
+package team1699.utils;
 
 public class Utils {
 
