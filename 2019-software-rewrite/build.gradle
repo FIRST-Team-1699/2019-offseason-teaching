@@ -53,6 +53,10 @@ dependencies {
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
     testCompile 'junit:junit:4.12'
+    implementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'junit:junit:4.12'
+    implementation 'org.junit.jupiter:junit-jupiter'
 }
 
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
